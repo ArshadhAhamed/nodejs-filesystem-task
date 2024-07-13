@@ -11,6 +11,11 @@ if (!fs.existsSync(filesDir)) {
     fs.mkdirSync(filesDir);
 }
 
+// Root route to handle GET requests to "/"
+app.get('/', (req, res) => {
+    res.send('Welcome to the NodeJS File System API!');
+});
+
 // Endpoint to create a text file with current timestamp
 app.post('/create-file', (req, res) => {
     const timestamp = new Date().toISOString();
@@ -38,4 +43,3 @@ app.get('/files', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
-
